@@ -13,9 +13,7 @@ class Categorie
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'integer', nullable: true)]
-    private $id_categorie;
-
+   
     #[ORM\Column(type: 'string', length: 50)]
     private $nomCategorie;
 
@@ -24,17 +22,8 @@ class Categorie
         return $this->id;
     }
 
-    public function getIdCategorie(): ?int
-    {
-        return $this->id_categorie;
-    }
-
-    public function setIdCategorie(?int $id_categorie): self
-    {
-        $this->id_categorie = $id_categorie;
-
-        return $this;
-    }
+  
+   
 
     public function getNomCategorie(): ?string
     {
