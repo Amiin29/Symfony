@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Liste des livres {% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Responsive Navbar</title>
+
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Ubuntu:wght@300;700&display=swap');
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Ubuntu', sans-serif;
+            }
+
+            .navbar {
+                background-color: rgb(22, 7, 36);
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                line-height: 5rem;
+            }
+
+            .left h1 {
+                font-size: 2.5rem;
+                cursor: pointer;
+            }
+
+            .checkBtn {
+                display: none;
+            }
+
+            #check {
+                display: none;
+            }
+
+            .checkBtn {
+                cursor: pointer;
+                font-size: 30px;
+                float: right;
+                color: #ed1e79;
+                line-height: 80px;
+            }
+
+            .right ul {
+                display: flex;
+                list-style: none;
+            }
+
+            .right ul li a {
+                padding: 10px 20px;
+                font-size: 1.2rem;
+                color: white;
+                cursor: pointer;
+                text-decoration: none;
+                transition: all 1s;
+            }
+
+            .right ul li a:hover {
+                background-color: #fff;
+                border-radius: 7px;
+                color: rgb(22, 7, 36);
+            }
+
+            @media screen and (max-width:805px) {
+                .list {
+                    width: 100%;
+                    height: 100vh;
+                    background-color: rgb(22, 7, 36);
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    position: fixed;
+                    top: 4rem;
+                    left: 100%;
+                    transition: all 1s;
+                }
+
+                #check {
+                    display: none;
+                }
+
+                .checkBtn {
+                    display: block;
+                }
+
+                #check:checked~ul {
+                    left: 0%;
+                }
+
+            }
+        </style>
+    </head>
+    <body>
+    <nav class="navbar">
+
+        <div class="left">
+
+            <ul class="list" style="color: white;    margin-left: -26px;">
+                <a style="    color: white;
+    text-decoration: none;"><div >Project 2</div></a>
+            </ul>
+        </div>
+
+        <div class="right">
+
+            <input type="checkbox" id="check">
+
+            <label for="check" class="checkBtn">
+
+                <i class="fa fa-bars"></i>
+
+            </label>
+
+            <ul class="list">
+                <li><a href="{{ path('categorie') }}">Gestion des catégories</a></li>
+                <li><a href="{{ path('app_livres') }}">Gestion des articles</a></li>
+
+
+            </ul>
+
+        </div>
+
+    </nav>
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+
+    </body>
+</html>
