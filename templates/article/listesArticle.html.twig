@@ -8,25 +8,25 @@
 			<thead>
 				<tr>
 					<th>Numero</th>
-					<th>Nom Article</th>
-					<th>Auteur Article</th>
-					<th>Reference</th>
-                    <th>Ouvrage</th>
-                    <th>Année de publication</th>
+					<th>libelle</th>
+					<th>is_disponible</th>
+					<th>Price</th>
+                    <th>Marque</th>
+                    
 					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
-				{% for livre in livres %}
+				{% for article in articles %}
 					<tr>
 						<td>{{loop.index}}</td>
-						<td>{{livre.nomLivre}}</td>
-						<td>{{livre.auteurLivre}}</td>
-                        <td>{{livre.reference}}</td>
-                        <td>{{livre.ouvrage}}</td>
-                        <td>{{livre.getAnneePublication()|date('d-m-Y')}}</td>
+						<td>{{article.libelle}}</td>
+						<td>{{article.disponible}}</td>
+                        <td>{{article.Price}}</td>
+                        <td>{{article.marque}}</td>
+                    
 						<td>
-                            <a class="btn rounded-pill btn-warning" href="{{url('app_modifier_livre', {'id':livre.id})}}">Modifier</a>
+                            <a class="btn rounded-pill btn-warning" href="{{url('app_modifier_livre', {'id':article.id})}}">Modifier</a>
 							<a class="btn rounded-pill btn-danger" data-bs-toggle="modal" data-bs-target="#myModal">Supprimer</a>
 							<div class="modal" id="myModal">
 								<div class="modal-dialog">
@@ -45,7 +45,7 @@
 
 									<!-- Modal footer -->
 									<div class="modal-footer">
-										<a class="btn rounded-pill btn-danger" href="{{url('app_supprimer_livre', {'id':livre.id})}}">Confirmez</a>
+										<a class="btn rounded-pill btn-danger" href="{{url('app_supprimer_livre', {'id':article.id})}}">Confirmez</a>
 										<a class="btn btn-secondary" data-bs-dismiss="modal">Annuler</a>
 									</div>
 
