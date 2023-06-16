@@ -40,4 +40,27 @@ class CategorieController extends AbstractController
           ));
       }
 
+    
+    #[Route("/supprimer_categorie/{id<\d+>}", name: "app_supprimer_categorie")]
+    public function supprimerCategorie(Categorie $categorie, EntityManagerInterface $em)
+    {
+        $em ->remove($categorie);
+        $em ->flush();
+        return $this->redirectToRoute('categorie'); 
+    }
+
+      /*Fonction de modification d'un Article*/
+      #[Route("/modifier_categorie/{id<\d+>}", name: "app_modifier_categorie")]
+      public function modifierCategorie(Request $request, Categorie $categorie, EntityManagerInterface $em)
+      {
+          $form = $this->createForm(CategorieType::class, $categorie);
+          $form->handleRequest($request);
+          if($form->isSubmitted() && $form->isValid()){
+              $em->flush();
+              return $this->redirectToRoute('categorie');
+          }
+          return $this->render('categorie/modifierCategorie.html.twig',array(
+              'form'=>$form->createView()
+          ));
+      }
 }

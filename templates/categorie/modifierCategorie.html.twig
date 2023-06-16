@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification d'un categorie
+
+
+{% endblock %}
+{% block body %}
+
+<h2>Ajout d'un article</h2>
+<a href="{{url('categorie')}}"><button type="button" class="btn rounded-pill btn-success">Retour</button></a>
+<div class="form-horizontal">
+	{{ form_start(form) }}
+		<div class=" form-group ">
+			<label class="control-label col-sm-2 " for="name">Categorie Name :</label>
+			<div class="col-sm-10 ">
+				{{form_widget(form.nomCategorie, {'attr': {'class': 'form-control','type':'text', placeholder:'Le nom du Categorie'}}) }}
+			</div>
+		</div>
+		
+		<div class="form-group button">
+			<div class="col-sm-offset-2 col-sm-10 ">
+				<button type="submit" name="ajouter" class="btn btn-primary">Ajouter</button>
+			</div>
+		</div>
+	{{ form_end(form) }}
+</div>
+
+{% endblock %}
