@@ -12,6 +12,7 @@
 					<th>Disponible ( En Stock )</th>
 					<th>Price</th>
                     <th>Marque</th>
+					<th>Categorie</th>
                     
 					<th>Actions</th>
 				</tr>
@@ -24,6 +25,7 @@
 						<td>{{article.disponible}}</td>
                         <td>{{article.Price}}</td>
                         <td>{{article.marque}}</td>
+						<td>{{article.categorie.nomCategorie}}</td>
                     
 						<td>
                             <a class="btn rounded-pill btn-warning" href="{{url('app_modifier_livre', {'id':article.id})}}">Modifier</a>
