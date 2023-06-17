@@ -5,9 +5,18 @@
 
 {% endblock %}
 {% block body %}
+<style>body {
+    font-family: Helvetica;
+    -webkit-font-smoothing: antialiased;
+    background: rgb(203 210 218);</style>
+		<br>
+<div style="margin-left: 1000px;">
 
-<h2>Ajout d'un article</h2>
 <a href="{{url('categorie')}}"><button type="button" class="btn rounded-pill btn-success">Retour</button></a>
+</div>
+<h2>Modifier catégorie</h2>
+
+	<br>
 <div class="form-horizontal">
 	{{ form_start(form) }}
 		<div class=" form-group ">
@@ -19,7 +28,7 @@
 		
 		<div class="form-group button">
 			<div class="col-sm-offset-2 col-sm-10 ">
-				<button type="submit" name="ajouter" class="btn btn-primary">Ajouter</button>
+				<div style="margin-left: 855px;"><button type="submit" name="ajouter" class="btn btn-primary">Confirmer</button></div>
 			</div>
 		</div>
 	{{ form_end(form) }}

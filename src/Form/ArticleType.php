@@ -24,7 +24,7 @@ class ArticleType extends AbstractType
             ->add('categorie', EntityType::class, [
                 'class' => Categorie::class,
                 'choice_label' => 'nomCategorie', // Replace with the actual field from Address entity to display in the dropdown
-                'placeholder' => 'Select an Categorie',
+                'placeholder' => 'Selectionner votre Catégorie',
             ])
           
         ;
