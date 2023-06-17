@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1 class="log">
+    Register
+  </h1>
+{{ form_start(form) }}
+ {{ form_row(form.username) }}
+ {{ form_row(form.email) }}
+ {{ form_row(form.plainPassword.first) }}
+ {{ form_row(form.plainPassword.second) }}
+ <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">Login in</button>
+{{ form_end(form) }}
+{% endblock %}
